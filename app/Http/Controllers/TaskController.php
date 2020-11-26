@@ -22,7 +22,7 @@ class TaskController extends Controller
     //
     public function index(Request $request){
 
-        return Task::where('user_id', $request->header('user-id'))->get();
+        return Task::where('user_id', $request->header('user-id'))->orderBy('created_at','desc')->get();
     }
 
     public function show($id){

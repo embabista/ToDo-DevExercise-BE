@@ -16,7 +16,14 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-
+$router->options(
+    '/{any:.*}',
+    [
+        function (){
+            return response(['status' => 'success']);
+        }
+    ]
+);
 $router->post('/register', 'UserController@store');
 $router->post('/authenticate','Usercontroller@authenticate');
 $router->group(['prefix' => 'api/v1'], function () use ($router){
