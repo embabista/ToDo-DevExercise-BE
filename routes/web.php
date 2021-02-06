@@ -25,7 +25,7 @@ $router->options(
     ]
 );
 $router->post('/register', 'UserController@store');
-$router->post('/authenticate','Usercontroller@authenticate');
+$router->post('/authenticate','UserController@authenticate');
 $router->group(['prefix' => 'api/v1'], function () use ($router){
     $router->get('/tasks', 'TaskController@index');
     $router->post('/tasks', 'TaskController@store');
