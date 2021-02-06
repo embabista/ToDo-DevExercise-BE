@@ -30,12 +30,7 @@ class TaskController extends Controller
 
     }
     public function store(Request $request){
-        $this->validate($request, [
-            'task' => 'required',
-        ]);
-        $data = array_merge($request->all(), array('user_id' => $request->header('user-id')));
-        Task::create($data);
-        return response()->json('successfully created', 201);
+        //implement storing new task
     }
 
     public function update(Request $request, $id){
