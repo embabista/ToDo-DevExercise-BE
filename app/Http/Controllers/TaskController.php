@@ -30,7 +30,19 @@ class TaskController extends Controller
 
     }
     public function store(Request $request){
-        //implement storing new task
+
+       $task = Task::create([
+           'task'       => $request->task,
+           'user_id'    => $request->user_id,
+           'done'       => $request->done,
+           'list_id'    => $request->list,
+           'note'       => $request->note,
+           'reminder'   => $request->reminder,
+           'due_date'   => $request->due_date
+      ]);
+
+       return response()->json(['successfully added', $task]);
+
     }
 
     public function update(Request $request, $id){
